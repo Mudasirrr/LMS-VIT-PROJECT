@@ -51,5 +51,5 @@ Follow the steps below to set up the project locally:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/YourUsername/LMS_Of_VIT_Melb.git](https://github.com/Mudasirrr/LMS-VIT-PROJECT.git
+   git clone https://github.com/Mudasirrr/LMS-VIT-PROJECT.git
    cd LMS_Of_VIT_Melb
