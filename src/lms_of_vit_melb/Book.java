@@ -1,63 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lms_of_vit_melb;
 
-/**
- *
- * @author User
- */
-// File: Book.java
 public class Book {
     private String bookID;
     private String title;
-    private String author;
-    private boolean available;
+    private Author author;
+    private Publisher publisher;
+    private Category category;
+    private boolean isLoaned;
 
-    public Book(String bookID, String title, String author) {
-        this.bookID = bookID;
+    public Book(String bookId, String title, Author author, Publisher publisher, Category category) {
+        this.bookID = bookId;
         this.title = title;
         this.author = author;
-        this.available = true; // Books are available by default
+        this.publisher = publisher;
+        this.category = category;
+        this.isLoaned = false;
     }
-
-    // Display book info
-    public void displayBookInfo() {
-        System.out.println("Book ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Available: " + available);
-    }
-
-    // Getter and Setter methods
     public String getBookID() {
         return bookID;
     }
 
-    public void setBookID(String bookID) {
-        this.bookID = bookID;
+    public String getBookId() {
+        return bookID;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public boolean isLoaned() {
+        return isLoaned;
     }
 
-    public String getAuthor() {
-        return author;
+    public void setLoaned(boolean loaned) {
+        isLoaned = loaned;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
+    @Override
+    public String toString() {
+        return "Book ID: " + bookID + ", Title: " + title + ", Author: " + author.getName() + ", Publisher: " + publisher.getName() + ", Category: " + category.getCategoryName();
     }
 }

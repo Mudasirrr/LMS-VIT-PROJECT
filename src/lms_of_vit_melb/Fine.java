@@ -1,32 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lms_of_vit_melb;
 
-/**
- *
- * @author User
- */
-// File: Fine.java
 public class Fine {
+    private String fineId;
+    private Loan loan;
     private double amount;
 
-    public Fine(double amount) {
+    public Fine(String fineId, Loan loan, double amount) {
+        this.fineId = fineId;
+        this.loan = loan;
         this.amount = amount;
     }
 
-    // Getter and Setter methods
+    public String getFineId() {
+        return fineId;
+    }
+
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public void displayFineInfo() {
-        System.out.println("Fine Amount: $" + amount);
+    @Override
+    public String toString() {
+        return "Fine ID: " + fineId + ", Amount: $" + amount;
     }
 }

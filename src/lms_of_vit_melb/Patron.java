@@ -1,53 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lms_of_vit_melb;
 
-/**
- *
- * @author User
- */
-// File: Patron.java
 import java.util.ArrayList;
+import java.util.List;
 
 public class Patron extends User {
-    private String patronID;
-    private ArrayList<Book> borrowedBooks;
+    private List<Loan> loans;
+    private List<Reservation> reservations;
 
-    public Patron(String patronID, String name, String email) {
-        super(patronID, name, email);
-        this.patronID = patronID;
-        this.borrowedBooks = new ArrayList<>();
+    public Patron(String userId, String name) {
+        super(userId, name);
+        this.loans = new ArrayList<>();
+        this.reservations = new ArrayList<>();
     }
 
-    // Borrow a book
-    public void borrowBook(Book book) {
-        borrowedBooks.add(book);
-        book.setAvailable(false);
-        System.out.println("Book '" + book.getTitle() + "' borrowed by " + getName());
+    // Add a loan to the patron
+    public void addLoan(Loan loan) {
+        loans.add(loan);
     }
 
-    // Return a book
-    public void returnBook(Book book) {
-        borrowedBooks.remove(book);
-        book.setAvailable(true);
-        System.out.println("Book '" + book.getTitle() + "' returned by " + getName());
+    // Return a loan
+    public void returnLoan(String loanId) {
+        loans.removeIf(loan -> loan.getLoanId().equals(loanId));
     }
 
-    // Display patron info
-    @Override
-    public void displayUserInfo() {
-        System.out.println("Patron ID: " + getUserID() + ", Name: " + getName());
+    // Add a reservation
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
     }
 
-    // Getter and Setter methods
-    public ArrayList<Book> getBorrowedBooks() {
-        return borrowedBooks;
-    }
-
-    public void setBorrowedBooks(ArrayList<Book> borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
+    // Check fines (for simplicity, assuming no fines)
+    public void checkFines() {
+        System.out.println("No fines for the patron.");
     }
 }

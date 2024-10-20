@@ -1,30 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lms_of_vit_melb;
 
-/**
- *
- * @author User
- */
-// File: Reservation.java
 public class Reservation {
-    private String reservationID;
-    private Book book;
+    private String reservationId;
     private Patron patron;
+    private Book book;
 
-    public Reservation(String reservationID, Book book, Patron patron) {
-        this.reservationID = reservationID;
-        this.book = book;
+    public Reservation(String reservationId, Patron patron, Book book) {
+        this.reservationId = reservationId;
         this.patron = patron;
+        this.book = book;
     }
 
-    // Getter and Setter methods
-    public String getReservationID() {
-        return reservationID;
+    public String getReservationId() {
+        return reservationId;
     }
 
-    public void setReservationID(String reservationID) {
-        this.reservation
+    @Override
+    public String toString() {
+        return "Reservation ID: " + reservationId + ", Book: " + book.getTitle() + ", Patron: " + patron.getName();
+    }
+}

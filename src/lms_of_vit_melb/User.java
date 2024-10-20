@@ -1,33 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lms_of_vit_melb;
 
-public abstract class User {
-    protected String userID;
-    protected String name;
-    protected String contactInfo;
+public class User {
+    private String userId;
+    private String name;
 
-    public User(String userID, String name, String contactInfo) {
-        this.userID = userID;
+    public User(String userId, String name) {
+        this.userId = userId;
         this.name = name;
-        this.contactInfo = contactInfo;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getUserId() {
+        return userId;
     }
 
     public String getName() {
         return name;
     }
+    
 
-    public String getContactInfo() {
-        return contactInfo;
+    @Override
+    public String toString() {
+        return "User ID: " + userId + ", Name: " + name;
     }
-
-    public abstract void displayUserInfo();
 }
-
