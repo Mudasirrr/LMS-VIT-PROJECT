@@ -1,7 +1,6 @@
 package lms_of_vit_melb;
 
 public class Loan {
-
     private String loanId;
     private Patron patron;
     private Book book;
@@ -34,12 +33,13 @@ public class Loan {
     public String toString() {
         return "Loan ID: " + loanId + ", Book: " + book.getTitle() + ", Patron: " + patron.getName() + ", Loan Date: " + loanDate + ", Due Date: " + dueDate;
     }
-
-    public Patron getPatron() {
+    public Patron getPatron(){
         return patron;
     }
-
-    public Book getBook() {
+    public Book getBook(){
         return book;
     }
+ 
 }
+    
+

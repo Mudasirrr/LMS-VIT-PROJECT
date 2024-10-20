@@ -1,8 +1,8 @@
 package lms_of_vit_melb;
 
 public class User {
-    private String userId;
-    private String name;
+    public String userId;
+    public String name;
 
     public User(String userId, String name) {
         this.userId = userId;

@@ -1,145 +1,3 @@
-/*package lms_of_vit_melb;
-
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-        String bookId;
-        // Create a library instance
-        Library library = new Library();
-
-        // Create some authors, publishers, books, patrons, and employees
-        Author author1 = new Author("A1", "J.K. Rowling");
-        Author author2 = new Author("A2", "George Orwell");
-
-        Publisher publisher1 = new Publisher("P1", "Bloomsbury Publishing");
-        Publisher publisher2 = new Publisher("P2", "Houghton Mifflin Harcourt");
-
-        Category category1 = new Category("C1", "Fantasy");
-        Category category2 = new Category("C2", "Dystopian");
-
-        Book book1 = new Book("B1", "Harry Potter and the Philosopher's Stone", author1, publisher1, category1);
-        Book book2 = new Book("B2", "1984", author2, publisher2, category2);
-
-        library.addBook(book1);
-        library.addBook(book2);
-
-        Patron patron1 = new Patron("P101", "Harry Potter");
-        Patron patron2 = new Patron("P102", "John Smith");
-
-        Employee employee1 = new Employee("E201", "Emma Johnson", "Librarian");
-
-        library.addPatron(patron1);
-        library.addPatron(patron2);
-        library.addEmployee(employee1);
-
-        // Create scanner for user input
-        Scanner scanner = new Scanner(System.in);
-
-        boolean exit = false;
-        while (!exit) {
-            // Display the menu
-            System.out.println("*************************************************\n\b\t****Library Management Menu:****\n*************************************************");
-            System.out.println("1. Borrow a Book");
-            System.out.println("2. Return a Book");
-            System.out.println("3. Reserve a Book");
-            System.out.println("4. Check Patron Fines");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
-            System.out.print("*******************************\n");
-            switch (choice) {
-                case 1:
-                    // Borrow a book
-                    System.out.print("Enter Patron Name: ");
-                    String patronName = scanner.nextLine();
-                    Patron patronBorrowing = library.findPatronByName(patronName);
-
-                    if (patronBorrowing != null) {
-                        System.out.print("Enter Book ID to Borrow: ");
-                        bookId = scanner.nextLine();
-                        Book bookToBorrow = library.findBookById(bookId);
-
-                        if (bookToBorrow != null && !bookToBorrow.isLoaned()) {
-                            Loan loan = new Loan("L1", patronBorrowing, bookToBorrow, "2024-10-20", "2024-11-20");
-                            patronBorrowing.addLoan(loan);
-                            System.out.println("Book borrowed successfully: " + bookToBorrow.getTitle());
-                        } else {
-                            System.out.println("Book is either not available or already loaned.");
-                        }
-                    } else {
-                        System.out.println("Patron not found.");
-                    }
-                    break;
-
-                case 2:
-                    // Return a book
-                    System.out.print("Enter Patron Name: ");
-                    patronName = scanner.nextLine();
-                    Patron patronReturning = library.findPatronByName(patronName);
-
-                    if (patronReturning != null) {
-                        System.out.print("Enter Loan ID to Return: ");
-                        String loanId = scanner.nextLine();
-                        patronReturning.returnLoan(loanId);
-                        System.out.println("Book returned successfully.");
-                    } else {
-                        System.out.println("Patron not found.");
-                    }
-                    break;
-
-                case 3:
-                    // Reserve a book
-                    System.out.print("Enter Patron Name: ");
-                    patronName = scanner.nextLine();
-                    Patron patronReserving = library.findPatronByName(patronName);
-
-                    if (patronReserving != null) {
-                        System.out.print("Enter Book ID to Reserve: ");
-                        bookId = scanner.nextLine();
-                        Book bookToReserve = library.findBookById(bookId);
-
-                        if (bookToReserve != null) {
-                            Reservation reservation = new Reservation("R1", patronReserving, bookToReserve);
-                            patronReserving.addReservation(reservation);
-                            System.out.println("Book reserved successfully: " + bookToReserve.getTitle());
-                        } else {
-                            System.out.println("Book not found.");
-                        }
-                    } else {
-                        System.out.println("Patron not found.");
-                    }
-                    break;
-
-                case 4:
-                    // Check fines for a patron
-                    System.out.print("Enter Patron Name: ");
-                    patronName = scanner.nextLine();
-                    Patron patronCheckingFines = library.findPatronByName(patronName);
-
-                    if (patronCheckingFines != null) {
-                        patronCheckingFines.checkFines();
-                    } else {
-                        System.out.println("Patron not found.");
-                    }
-                    break;
-
-                case 5:
-                    // Exit the system
-                    exit = true;
-                    break;
-
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-
-        scanner.close();
-    }
-}
- */
 package lms_of_vit_melb;
 
 import java.util.List;
@@ -172,19 +30,25 @@ public class Main {
         Patron patron1 = new Patron("P101", "Harry Potter");
         Patron patron2 = new Patron("P102", "John Smith");
 
-        Employee employee1 = new Employee("E201", "Emma Johnson", "Librarian");
+        Employee employee1 = new Employee("E201", "Mudasir Hussain", "Cyber Security Engineer");
+        Employee employee2 = new Employee("E202", "Amara", "Librarian");
 
         library.addPatron(patron1);
         library.addPatron(patron2);
+
+        library.addEmployee(employee1);
+        library.addEmployee(employee2);
         //library.addEmployee(employee1);
 
+        // List<Employee> employees = library.getEmployees();
         // Using scanner for user input
         Scanner scanner = new Scanner(System.in);
-        int choice = 0;
+        int choice = 100;
 
         // Stylish and functional menu with proper handling of class relationships
-        while (choice != 9) { // Loop until the user chooses to exit
-            System.out.println("\n--- Library Management Menu ---");
+        while (choice != 0) { // Loop until the user chooses to exit
+            System.out.println("\n\n\n*************************************************\n\b\t****Library Management Menu:****\n*************************************************");
+
             System.out.println("1. Add a Patron");
             System.out.println("2. Add a Book");
             System.out.println("3. Borrow a Book");
@@ -193,8 +57,15 @@ public class Main {
             System.out.println("6. View Loan Records");
             System.out.println("7. View Categories");
             System.out.println("8. Add a Reservation");
-            System.out.println("9. Exit");
+            System.out.println("9. Show all the Employees");
+            System.out.println("10. Show all the Patrons");
+            System.out.println("11. Show all the Books");
+            System.out.println("0. Exit");
+            System.out.println("****************************************************\n*****************************************************");
+
             System.out.print("Enter your choice: ");
+            System.out.println("\n****************************************************\n*****************************************************");
+
             choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline character after integer input
 
@@ -299,8 +170,22 @@ public class Main {
                     break;
 
                 case 6:
+                    Patron borrowinggPatron = library.getPatronByName("Harry Potter"); // Get the patron by name or ID
+                    Book bookTooBorrow = library.getBookByID("B1"); // Get the book by ID
+
+                    if (borrowinggPatron != null && bookTooBorrow != null) {
+                        // Creating a new loan with proper details
+                        Loan newLoan = new Loan("1", borrowinggPatron, bookTooBorrow, "2024-10-20", "2024-11-20");
+
+                        // Adding the loan to the library
+                        library.addLoan(newLoan);
+                        System.out.println("Loan created successfully!");
+                    } else {
+                        System.out.println("Patron or Book not found.");
+                    }
+                    /*
                     // Creating a new loan (ensure that borrowingPatron and bookToBorrow exist)
-                    Loan newLoan = new Loan("1", borrowingPatron, bookToBorrow, "2024-10-20", "2024-11-20");
+                    Loan newLoan = new Loan("1", patron1, book1, "2024-11-20", "2024-11-20");
 
 // Adding the loan to the library
                     library.addLoan(newLoan);
@@ -309,21 +194,21 @@ public class Main {
                     List<Loan> allLoans = library.getLoans();
                     if (!allLoans.isEmpty()) {
                         for (Loan l : allLoans) {  // Changed loop variable name to 'l'
-                            System.out.println("Patron: " + l.getPatron().getName() + " | Book: " + l.getBook().getTitle());
+                            System.out.println("Patron: " + patron1.getName() + " | Book: " + book1.getTitle());
                         }
                     } else {
                         System.out.println("No loan records found.");
-                    }
+                    }*/
 
                     break;
 
                 case 7:
-                    // View Categories
-                    System.out.println("--- View Book Categories ---");
-                    ArrayList<Category> categories = library.getCategories();
-                    if (!categories.isEmpty()) {
-                        for (Category category : categories) {
-                            System.out.println("Category: " + category.getCategoryName());
+                    // Retrieve the list of categories
+                    List<Category> categories = library.getCategories();  // Change to List instead of ArrayList
+                    System.out.println(category1.getCategoryName());
+                    if (categories != null && !categories.isEmpty()) {
+                        for (Category categ : categories) {
+                            System.out.println("Category: " + categ.getCategoryName());
                         }
                     } else {
                         System.out.println("No categories found.");
@@ -344,7 +229,7 @@ public class Main {
 
                     if (reservingPatron != null && reservedBook != null) {
                         // Create Reservation and add to library
-                        Reservation reservation = new Reservation(reservingPatron, reservedBook);
+                        Reservation reservation = new Reservation("R1", reservingPatron, reservedBook);
                         library.addReservation(reservation);
                         System.out.println(reservingPatron.getName() + " reserved " + reservedBook.getTitle());
                     } else {
@@ -352,7 +237,44 @@ public class Main {
                     }
                     break;
 
-                case 9:
+                // New cases for displaying all employees, patrons, and books
+                case 9:  // Display all Employees
+                    List<Employee> employees = library.getEmployees();
+                    if (!employees.isEmpty()) {
+                        System.out.println("--- List of Employees---");
+                        for (Employee employee : employees) {
+                            System.out.println("Employee ID: " + employee.getEmployeeId() + ", Employee Name: " + employee.getName());
+                        }
+                    } else {
+                        System.out.println("No Employee found.");
+                    }
+
+                    break;
+
+                case 10:  // Display all Patrons
+                    List<Patron> patrons = library.getPatrons();
+                    if (!patrons.isEmpty()) {
+                        System.out.println("--- List of Patrons ---");
+                        for (Patron patron : patrons) {
+                            System.out.println("Patron ID: " + patron.getPatronId() + ", Name: " + patron.getName());
+                        }
+                    } else {
+                        System.out.println("No Patrons found.");
+                    }
+                    break;
+
+                case 11:  // Display all Books
+                    List<Book> books = library.getBooks();
+                    if (!books.isEmpty()) {
+                        System.out.println("--- List of Books ---");
+                        for (Book book : books) {
+                            System.out.println("Book ID: " + book.getBookID() + ", Title: " + book.getTitle());
+                        }
+                    } else {
+                        System.out.println("No books found.");
+                    }
+                    break;
+                case 0:
                     // Exit the program
                     System.out.println("Exiting the Library Management System.");
                     break;

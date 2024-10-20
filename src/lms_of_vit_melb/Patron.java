@@ -32,4 +32,16 @@ public class Patron extends User {
     public void checkFines() {
         System.out.println("No fines for the patron.");
     }
-}
+    public String getPatronId(){
+        return userId;
+    }
+      public String getName(){
+        return name;
+      }
+      public String getPatrons(){
+           return "Patron ID: " + userId + ", Patron Name: " + name + "\n " ;
+      }
+    
+      //public String toString() {
+       // return "Book ID: " + bookID + ", Title: " + title + ", Author: " + author.getName() + ", Publisher: " + publisher.getName() + ", Category: " + category.getCategoryName();
+    }

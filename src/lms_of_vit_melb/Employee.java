@@ -11,9 +11,19 @@ public class Employee extends User {
     public String getRole() {
         return role;
     }
+   
 
     @Override
     public String toString() {
         return super.toString() + ", Role: " + role;
     }
+    public String getEmployee(){
+        return name;
+    }
+        public String getEmployeeId(){
+        return userId;
+    }
+      public String getName(){
+        return name;
+      }
 }

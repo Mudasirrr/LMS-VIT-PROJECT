@@ -14,6 +14,11 @@ public class Reservation {
     public String getReservationId() {
         return reservationId;
     }
+    public void addReservation(String reservationId, Patron patron, Book book){
+         this.reservationId = reservationId;
+        this.patron = patron;
+        this.book = book;
+        }
 
     @Override
     public String toString() {
