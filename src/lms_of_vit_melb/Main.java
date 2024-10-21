@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("```````````````````````````````````````````````````\n\b\t****Welcome to VIT LMS:****\n```````````````````````````````````````````````````");
+
         String bookId;
         // Create an instance of the Library to manage all operations
         Library library = new Library();
